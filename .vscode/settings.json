@@ -9,9 +9,9 @@
         "${workspaceFolder}/src",
         "${workspaceFolder}/notebooks"
     ],
+    "python.defaultInterpreterPath": "/opt/conda/bin/python",
     "python.envFile": "${workspaceFolder}/.env",
     "python.terminal.activateEnvironment": true,
-    "python.defaultInterpreterPath": "/opt/conda/bin/python",
     // Test settings
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,

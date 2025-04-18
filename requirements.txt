@@ -5,7 +5,8 @@ jupyter>=1.1.1
 opencv-python>=4.11.0.86
 python-dotenv>=1.0.1
 hydra_colorlog
-
+roboflow
+supervision
 # --------- others --------- #
 pyrootutils     # standardizing the project root setup
 pre-commit      # hooks for applying linters on commit

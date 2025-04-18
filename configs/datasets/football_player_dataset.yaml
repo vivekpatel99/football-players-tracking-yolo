@@ -1,0 +1,10 @@
+nc: 4
+names: ['ball', 'goalkeeper', 'player', 'referee']
+datasets_dir: data
+dataset_name: football-players-detection-14
+roboflow:
+  workspace: roboflow-jvuqo
+  project: football-players-detection-3zvbc
+  version: 14
+  model: yolov12
+  url: https://universe.roboflow.com/roboflow-jvuqo/football-players-detection-3zvbc/dataset/14

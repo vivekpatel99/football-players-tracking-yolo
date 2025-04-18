@@ -52,6 +52,7 @@
 			// Set *default* container specific settings.json values on container create.
 			"settings": {
 				// "python.defaultInterpreterPath": "/opt/conda/bin/python",
+				// "python.testing.pytestPath": "/opt/conda/bin/pytest",
 				"terminal.integrated.shell.linux": "/bin/bash",
 				"terminal.integrated.defaultProfile.linux": "bash"
 			},

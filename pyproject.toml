@@ -4,4 +4,22 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "hydra-core>=1.3.2",
+    "ipykernel>=6.29.5",        
+    "ipywidgets>=8.1.5",      
+    "jupyter>=1.1.1",          
+    "opencv-python>=4.11.0.86",
+    "python-dotenv>=1.0.1",
+    "rich",                    
+    "hydra_colorlog",          
+    "pyrootutils",             
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",              # Hooks for applying linters on commit
+    "pytest",                  # Testing framework
+    "pytest-mock",             # Mocking utilities for pytest
+    "pytest-xdist",            # Parallel test execution for pytest
+]
