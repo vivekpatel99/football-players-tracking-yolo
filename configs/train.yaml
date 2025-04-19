@@ -8,13 +8,17 @@ defaults:
   - paths: default
   - extras: default
   - hydra: default
+  - model: default 
+  - trainer: default
+
+  # model config (enable through command line, e.g. `python train.py model=default`)- 
 
 
   # debugging config (enable through command line, e.g. `python train.py debug=default)
   - debug: null
 
 # task name, determines output directory path
-task_name: "Training"
+task_name: "augumented-data-yolo12l"
 
 # tags to help you identify your experiments
 # you can overwrite this in experiment configs

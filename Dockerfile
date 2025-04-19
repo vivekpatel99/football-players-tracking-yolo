@@ -11,9 +11,10 @@ RUN apt-get update -y && \
 # install UV
 # COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# # Tell uv to install packages into the /usr/local prefix (system-wide within the container)
-# ENV UV_PROJECT_ENVIRONMENT="/usr/local/python"
+# Use Conda's Python as the system Python for uv
+# ENV UV_SYSTEM_PYTHON=1
+# ENV PATH="/opt/conda/bin:$PATH"
 
 # WORKDIR /code
-# COPY pyproject.toml .
+# COPY pyproject.toml uv.lock ./
 # RUN uv sync

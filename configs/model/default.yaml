@@ -1,0 +1,6 @@
+# https://docs.ultralytics.com/models/yolo12/#performance-metrics
+
+defaults:
+  - yolo
+  # - optimizer: auto
+  # - scheduler: none

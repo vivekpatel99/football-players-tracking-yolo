@@ -1,10 +1,21 @@
+
 nc: 4
 names: ['ball', 'goalkeeper', 'player', 'referee']
 datasets_dir: data
 dataset_name: football-players-detection-14
+dataset_yaml: /workspaces/football-players-tracking-yolo/data/football-players-detection-14/data.yaml
+
 roboflow:
   workspace: roboflow-jvuqo
   project: football-players-detection-3zvbc
   version: 14
   model: yolov12
   url: https://universe.roboflow.com/roboflow-jvuqo/football-players-detection-3zvbc/dataset/14
+
+augmentations:
+  hsv_h: 0.1
+  hsv_s: 0.7
+  hsv_v: 0.8
+#   shear: 90
+  fliplr:  0.5
+#   mixup: 0.2

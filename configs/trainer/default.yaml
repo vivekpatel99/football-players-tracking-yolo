@@ -1,0 +1,21 @@
+# configs/trainer/default.yaml
+# https://docs.ultralytics.com/modes/train/#augmentation-settings-and-hyperparameters
+default_root_dir: ${paths.output_dir}
+params:
+  project: ${paths.results_dir}
+  name: ${task_name}
+  epochs: 3
+  imgsz: 640
+  batch: 0.8 #-1 # auto mode automatically adjust batch size for approximately 60% CUDA
+  lr0: 1e-4
+  optimizer: auto
+  pretrained: true
+  workers: 16
+  cache: true
+  save: true
+  # Enables Automatic Mixed Precision (AMP) training, reducing memory usage and possibly speeding up training with minimal impact on accuracy.
+  amp : true
+  exist_ok: true
+  # device: 0
+  val: true
+  plots: true

@@ -214,3 +214,6 @@ data/
 logs/
 .env
 .autoenv
+/pretrained_models
+/results
+*.pt
