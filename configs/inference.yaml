@@ -9,9 +9,6 @@ defaults:
   - extras: default
   - hydra: default
   - model: default 
-  - trainer: default
-
-  # model config (enable through command line, e.g. `python train.py model=default`)- 
 
 
   # debugging config (enable through command line, e.g. `python train.py debug=default)
@@ -25,7 +22,7 @@ task_name: "augumented-data-${model.model_name}"
 # overwrite from command line with `python train.py tags="[first_tag, second_tag]"`
 # appending lists from command line is currently not supported :(
 # https://github.com/facebookresearch/hydra/issues/1547
-tags: ["dev"]
+tags: ["deploy"]
 
 # set False to skip model training
 train: True
@@ -39,3 +36,15 @@ ckpt_path: null
 
 # seed for random number generators in pytorch, numpy and python.random
 seed: 42
+
+
+args:
+# must give project path or else - Error: No such file or directory: 'runs/detect/train/weights/best.pt' or permission denied
+  project: ${paths.results_dir}
+  name: inference-${task_name}
+  imgsz: 1280
+  half: True  # Enables half-precision (FP16) computation,
+  device: 0 # cuda device, i.e. 0 or 0,1,2,3 or cpu
+  plots: True
+  verbose: True # print allverbose
+  workers: 16

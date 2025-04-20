@@ -9,8 +9,13 @@ roboflow:
   workspace: roboflow-jvuqo
   project: football-players-detection-3zvbc
   version: 14
-  model: yolov12
+  model: yolov8
   url: https://universe.roboflow.com/roboflow-jvuqo/football-players-detection-3zvbc/dataset/14
+  # workspace: roboflow-jvuqo
+  # project: football-players-detection-3zvbc
+  # version: 14
+  # model: yolov12
+  # url: https://universe.roboflow.com/roboflow-jvuqo/football-players-detection-3zvbc/dataset/14
 
 augmentations:
   hsv_h: 0.1
@@ -18,4 +23,4 @@ augmentations:
   hsv_v: 0.8
 #   shear: 90
   fliplr:  0.5
-#   mixup: 0.2
+  mosaic: 0.5
