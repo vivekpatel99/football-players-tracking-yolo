@@ -42,7 +42,7 @@ args:
 # must give project path or else - Error: No such file or directory: 'runs/detect/train/weights/best.pt' or permission denied
   project: ${paths.results_dir}
   name: inference-${task_name}
-  imgsz: 1280
+  imgsz: [1280,1280]
   half: True  # Enables half-precision (FP16) computation,
   device: 0 # cuda device, i.e. 0 or 0,1,2,3 or cpu
   plots: True

@@ -22,7 +22,6 @@
 - **Roboflow:** Dataset management and download.
 - **Docker:** Containerization for consistent environment.
 - **VS Code Dev Containers:** Development environment setup.
-- **Github Workflow:** for testing.
 
 ## Project Structure
 
