@@ -1,0 +1,1 @@
+tracker_yaml: ${paths.root_dir}/configs/tracker/bytetrack.yaml

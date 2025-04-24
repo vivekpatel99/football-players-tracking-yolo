@@ -10,6 +10,7 @@ defaults:
   - hydra: default
   - model: default 
   - trainer: default
+  - tracker: default
 
   # model config (enable through command line, e.g. `python train.py model=default`)- 
 
