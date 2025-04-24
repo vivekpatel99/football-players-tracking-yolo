@@ -8,12 +8,11 @@ defaults:
   - paths: default
   - extras: default
   - hydra: default
-  - model: default 
+  - model: default
   - trainer: default
   - tracker: default
 
-  # model config (enable through command line, e.g. `python train.py model=default`)- 
-
+  # model config (enable through command line, e.g. `python train.py model=default`)-
 
   # debugging config (enable through command line, e.g. `python train.py debug=default)
   - debug: null
@@ -43,17 +42,17 @@ seed: 42
 
 # https://docs.ultralytics.com/modes/predict/#inference-arguments
 args:
-# must give project path or else - Error: No such file or directory: 'runs/detect/train/weights/best.pt' or permission denied
+  # must give project path or else - Error: No such file or directory: 'runs/detect/train/weights/best.pt' or permission denied
   project: ${paths.results_dir}
   name: inference-${task_name}
-  imgsz: [1280,1280]
+  imgsz: [1280, 1280]
   conf: 0.3
   iou: 0.7
-  half: True  # Enables half-precision (FP16) computation,
+  half: True # Enables half-precision (FP16) computation,
   device: 0 # cuda device, i.e. 0 or 0,1,2,3 or cpu
   plots: True
   verbose: True # print allverbose
   workers: 16
   batch: 1
   agnostic_nms: True # Enables class-agnostic Non-Maximum Suppression (NMS), which merges overlapping boxes of different classes. Useful in multi-class detection scenarios where class overlap is common.
-  stream=True # Enables memory-efficient processing for long videos or numerous images by returning a generator of Results objects instead of loading all frames into memory at once.
+  stream: False # Enables memory-efficient processing for long videos or numerous images by returning a generator of Results objects instead of loading all frames into memory at once.
