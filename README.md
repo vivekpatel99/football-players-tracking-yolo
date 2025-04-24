@@ -1,13 +1,12 @@
 # football-player-tracking-yolo
 
+![first-look-at-datasets](readme-assets/result_tracker.gif)
+
 ### Data
-
-
-![first-look-at-datasets]()
 
 ## ✨ Key Features
 
-- **Modular Design:** 
+- **Modular Design:**
 - **Configuration Management:** Uses Hydra for flexible configuration via YAML files and command-line overrides.
 - **Pre-trained Weights:** Leverages pre-trained weights for the YolO.
 
@@ -15,8 +14,8 @@
 
 - **Python:** Core programming language.
 - **Pytorch:** Deep learning framework.
-- **YoLO:** Pre-trained 
-- ** **:  Tracking Players and ball
+- **YoLO:** Pre-trained
+- \*\* \*\*: Tracking Players and ball
 - **Jupyter Notebook:** For exploratory data analysis (EDA), model development, and training.
 - **Hydra:** Configuration management.
 - **Roboflow:** Dataset management and download.
@@ -62,7 +61,6 @@
 
 - Ensure the path specified in `DATA_ROOT` within your `.env` file points to the correct location.
 
-
 ## ⚙️ Configuration
 
 - This project uses Hydra for managing configurations.
@@ -72,18 +70,13 @@
 
 **Example:** Change the model type or learning rate:
 
-
 ## 🏋️ Training
-
 
 4. Output: Training logs and checkpoints will typically be saved in an outputs/ directory managed by Hydra (check hydra.run.dir in the config). Validation metrics are printed at the end of each epoch.
 
 ## Models
 
-
 ## 📈 Results & Visualizations
-
-
 
 ## 🖥️ Hardware Specifications
 
@@ -98,5 +91,5 @@ While these specifications are recommended for optimal performance, the project 
 ## 📚 Reference
 
 - [ReCoDE-DeepLearning-Best-Practices](https://imperialcollegelondon.github.io/ReCoDE-DeepLearning-Best-Practices/)
-- [Roboflow-tutorial](https://www.youtube.com/watch?v=aBVGKoNZQUw) 
+- [Roboflow-tutorial](https://www.youtube.com/watch?v=aBVGKoNZQUw)
 - [Roblflow-tutoril-colab](https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/football-ai.ipynb#scrollTo=H1smkPKfYm00)
