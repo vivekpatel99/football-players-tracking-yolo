@@ -7,6 +7,10 @@ python-dotenv>=1.0.1
 hydra_colorlog
 roboflow
 supervision
+transformers # train players from 2 teams
+sentencepiece
+umap-learn
+
 # --------- others --------- #
 pyrootutils     # standardizing the project root setup
 pre-commit      # hooks for applying linters on commit

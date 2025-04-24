@@ -1,4 +1,5 @@
 # https://github.com/ArjanCodes/examples/blob/main/2024/vscode_python/ruff.toml
+# https://docs.astral.sh/ruff/configuration/
 
 # Standard excludes for common directories/files Ruff shouldn't check
 exclude = [
