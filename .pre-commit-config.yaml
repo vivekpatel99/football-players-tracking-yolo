@@ -1,11 +1,12 @@
+# update all the pre-commit hooks - `pre-commit autoupdate`
 default_language_version:
-  python: python3
+  pytho`: python3
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v5.0.0 # Consider updating rev
     hooks:
-      # list of supported hooks: https://pre-commit.com/hooks.html
+      # Keep your existing hooks here
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-docstring-first
@@ -15,72 +16,47 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-toml
       - id: check-case-conflict
-      # - id: check-added-large-files
+      - id: check-added-large-files
 
-  # python code formatting
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
+  # NEW: Add Ruff hook
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Find the latest version on GitHub Releases
+    rev: v0.11.6 # Use the latest stable version
     hooks:
-      - id: black
-        args: [--line-length, "99"]
+      # Run the linter (checks + fixes)
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix] # Apply fixes and fail if fixes were made
+      # Run the formatter
+      - id: ruff-format
 
-  # python import sorting
-  - repo: https://github.com/PyCQA/isort
-    rev: 6.0.1
-    hooks:
-      - id: isort
-        args: ["--profile", "black", "--filter-files"]
+  # REMOVED: black hook (replaced by ruff-format)
+  # REMOVED: isort hook (replaced by ruff --fix with 'I' rule enabled)
+  # REMOVED: pyupgrade hook (replaced by ruff --fix with 'UP' rule enabled)
+  # REMOVED: flake8 hook (replaced by ruff)
 
-  # python upgrading syntax to newer version
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.1
-    hooks:
-      - id: pyupgrade
-        args: [--py38-plus]
-
-  # python docstring formatting
-  # - repo: https://github.com/myint/docformatter
-  #   rev: v1.4
-  #   hooks:
-  #     - id: docformatter
-  #       args: [--in-place, --wrap-summaries=99, --wrap-descriptions=99]
-
-  # python check (PEP8), programming errors and code complexity
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.1.2
-    hooks:
-      - id: flake8
-        args:
-          [
-            "--extend-ignore",
-            "E203,E402,E501,F401,F841",
-            "--exclude",
-            "logs/*,data/*",
-          ]
-
-  # python security linter
+  # Keep python security linter
   - repo: https://github.com/PyCQA/bandit
-    rev: "1.8.3"
+    rev: 1.8.3 # Consider updating rev
     hooks:
       - id: bandit
-        args: ["-s", "B101"]
+        args: ["-s", "B101"] # Keep your bandit args
 
-  # yaml formatting
+  # Keep yaml formatting
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
+    rev: v4.0.0-alpha.8 # Consider updating rev
     hooks:
       - id: prettier
         types: [yaml]
 
-  # shell scripts linter
+  # Keep shell scripts linter
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
+    rev: v0.10.0.1 # Consider updating rev
     hooks:
       - id: shellcheck
 
-  # md formatting
+  # Keep md formatting
   - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.22
+    rev: 0.7.22 # Consider updating rev
     hooks:
       - id: mdformat
         args: ["--number"]
@@ -91,32 +67,27 @@ repos:
           # - mdformat-toc
           # - mdformat-black
 
-  # word spelling linter
+  # Keep word spelling linter
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.1
+    rev: v2.4.1 # Consider updating rev
     hooks:
       - id: codespell
-        args:
+        args: 
           - --skip=logs/**,data/**,*.ipynb
           - --ignore-words-list=abc,def,fpr,tpr,roc_auc,auc
 
+  # Keep jupyter notebook linting (but update to use ruff)
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.9.1 
+    hooks:
+      # Replace nbqa-black, nbqa-isort, nbqa-flake8 with nbqa-ruff
+      - id: nbqa-ruff
+        args: [--fix, --exit-non-zero-on-fix] # Apply fixes within notebooks
+      # You might also want to run the formatter on notebooks
+      - id: nbqa-ruff-format
+
+  # Keep commented out hooks if desired
+  # # python docstring formatting
+  # - repo: https://github.com/myint/docformatter
   # # jupyter notebook cell output clearing
   # - repo: https://github.com/kynan/nbstripout
-  #   rev: 0.5.0
-  #   hooks:
-  #     - id: nbstripout
-
-  # jupyter notebook linting
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.9.1
-    hooks:
-      - id: nbqa-black
-        args: ["--line-length=99"]
-      - id: nbqa-isort
-        args: ["--profile=black"]
-      - id: nbqa-flake8
-        args:
-          [
-            "--extend-ignore=E203,E402,E501,F401,F841",
-            "--exclude=logs/*,data/*",
-          ]
