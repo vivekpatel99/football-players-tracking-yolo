@@ -32,7 +32,7 @@ exclude = [
 ]
 
 # Set line length consistent with Black
-line-length = 88
+line-length = 150
 indent-width = 4
 
 # Specify the target Python version for compatibility checks
@@ -80,5 +80,3 @@ line-ending = "auto"
 docstring-code-format = true
 # Let Ruff determine the line length for code in docstrings
 docstring-code-line-length = "dynamic"
-
-
