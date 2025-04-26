@@ -1,0 +1,10 @@
+#label_annotator = supervision.LabelAnnotator(color=colors, text_color=sv.Color.BLACK, text_position=sv.Position.TOP_CENTER)
+label_annotator:
+  _target_: supervision.LabelAnnotator
+  color: ${common.colors}
+
+  text_color:
+    - supervision.Color.BLACK
+
+  text_position:
+    - supervision.Position.TOP_CENTER

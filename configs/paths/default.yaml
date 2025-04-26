@@ -22,5 +22,5 @@ work_dir: ${hydra:runtime.cwd}
 
 pretrained_model_dir: ${paths.root_dir}/pretrained_models
 
-train_bst_model: ${paths.root_dir}/results/final_yolov11l_weights/best.pt
-train_lst_model: ${paths.root_dir}/results/final_yolov11l_weights/last.pt
+train_bst_model: ${paths.root_dir}/results/augumented-data-yolo12l/weights/final_best.pt
+train_lst_model: ${paths.root_dir}/results/faugumented-data-yolo12l/weights/final_last.pt

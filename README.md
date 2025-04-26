@@ -2,7 +2,17 @@
 
 ![first-look-at-datasets](readme-assets/result_tracker.gif)
 
+## Objective
+
+- Fine tune YoLo model for football player datasets
+- Separate players from each team
+- Detect ball more accurately
+- Track all the players using tracking algorithm
+
 ### Data
+
+Dataset are downloaded from [Roboflow universe](https://universe.roboflow.com/roboflow-jvuqo/football-players-detection-3zvbc/model/12)
+**Number of classes** - Ball, goalkeeper, player, referee
 
 ## ✨ Key Features
 
@@ -15,7 +25,7 @@
 - **Python:** Core programming language.
 - **Pytorch:** Deep learning framework.
 - **YoLO:** Pre-trained
-- \*\* \*\*: Tracking Players and ball
+- **Tracking Algorithm**: ByteTrack
 - **Jupyter Notebook:** For exploratory data analysis (EDA), model development, and training.
 - **Hydra:** Configuration management.
 - **Roboflow:** Dataset management and download.
@@ -77,6 +87,16 @@
 ## Models
 
 ## 📈 Results & Visualizations
+
+**Model Summary:**
+
+**Validation Metrics:**
+Class Images Instances Box(P R mAP50 mAP50-95)
+all 49 1174 0.948 0.88 0.916 0.675
+ball 45 45 0.933 0.618 0.716 0.341
+goalkeeper 38 39 0.902 0.947 0.968 0.777
+player 49 973 0.978 0.991 0.994 0.84
+referee 49 117 0.978 0.966 0.987 0.743
 
 ## 🖥️ Hardware Specifications
 

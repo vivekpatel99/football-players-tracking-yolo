@@ -1,0 +1,7 @@
+#traingle_annot = supervision.TriangleAnnotator(color=sv.Color.RED, base=25, height=21, outline_thickness=1)
+traingle_annotator:
+  _target_: supervision.TriangleAnnotator
+  color: ${common.colors}
+  base: 25
+  height: 21
+  outline_thickness: 1

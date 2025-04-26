@@ -1,0 +1,9 @@
+colors_list:
+  - supervision.Color.YELLOW # Index 0 (Goalkeeper)
+  - supervision.Color.RED # Index 1 (Team 1)
+  - supervision.Color.GREEN # Index 2 (Team 2)
+  - supervision.Color.WHITE # Index 3 (Referee)
+
+colors:
+  _target_: supervision.ColorPalette
+  colors: ${common.colors_list}
