@@ -1,10 +1,12 @@
 #label_annotator = supervision.LabelAnnotator(color=colors, text_color=sv.Color.BLACK, text_position=sv.Position.TOP_CENTER)
 label_annotator:
   _target_: supervision.LabelAnnotator
-  color: ${common.colors}
-
+  color: ${common.color_palette}
   text_color:
-    - supervision.Color.BLACK
-
+    _target_: supervision.Color.from_hex
+    color_hex: "#000000" # Black
   text_position:
-    - supervision.Position.TOP_CENTER
+    null
+    # Tells Hydra to resolve the string "supervision.Position.TOP_CENTER"
+    # into the actual supervision.Position.TOP_CENTER enum object
+    # _target_: supervision.Position.TOP_CENTER

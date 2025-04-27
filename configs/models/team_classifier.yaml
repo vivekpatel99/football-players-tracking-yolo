@@ -3,3 +3,4 @@ team_classifier:
   embedding_processor: ${models.auto_processor}
   embedding_model: ${models.siglip_vision_model}
   batch_size: 32
+  device: "cuda"

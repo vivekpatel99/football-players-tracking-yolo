@@ -1,5 +1,5 @@
 #ellip_annotator = sv.EllipseAnnotator(color=colors, thickness=2)
 ellipse_annotator:
   _target_: supervision.EllipseAnnotator
-  color: ${common.colors}
+  color: ${common.color_palette}
   thickness: 2

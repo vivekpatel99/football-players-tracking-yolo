@@ -1,7 +1,10 @@
+# /workspaces/football-players-tracking-yolo/configs/annotate/triangle_annotator.yaml
 #traingle_annot = supervision.TriangleAnnotator(color=sv.Color.RED, base=25, height=21, outline_thickness=1)
 traingle_annotator:
   _target_: supervision.TriangleAnnotator
-  color: ${common.colors}
+  color:
+    _target_: supervision.Color.from_hex
+    color_hex: "#FF0000"
   base: 25
   height: 21
   outline_thickness: 1
