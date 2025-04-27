@@ -21,6 +21,10 @@ output_dir: ${hydra:runtime.output_dir}
 work_dir: ${hydra:runtime.cwd}
 
 pretrained_model_dir: ${paths.root_dir}/pretrained_models
+embedded_model_name: google/siglip-base-patch16-224
 
 train_bst_model: ${paths.root_dir}/results/augumented-data-yolo12l/weights/final_best.pt
 train_lst_model: ${paths.root_dir}/results/faugumented-data-yolo12l/weights/final_last.pt
+
+ip_vid_path: ${datasets.datasets_dir}/121364_0.mp4"
+processed_vid_path: ${paths.results_dir}/${models.model_name}_processed_121364_0.mp4

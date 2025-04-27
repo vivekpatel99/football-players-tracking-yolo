@@ -1,2 +1,5 @@
 # https://docs.ultralytics.com/models/yolo12/#performance-metrics
 model_name: yolov12l
+model:
+  _target_: ultralytics.YOLO
+  model: ${paths.train_bst_model}

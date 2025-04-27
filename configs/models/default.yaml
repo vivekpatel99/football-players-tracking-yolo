@@ -2,5 +2,6 @@
 
 defaults:
   - yolo
-  # - optimizer: auto
-  # - scheduler: none
+  - siglip_vision_model
+  - auto_processor
+  - team_classifier

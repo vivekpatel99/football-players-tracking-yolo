@@ -8,7 +8,7 @@ defaults:
   - paths: default
   - extras: default
   - hydra: default
-  - model: default
+  - models: default
   - trainer: default
   - tracker: default
   - annotate: default
@@ -20,8 +20,7 @@ defaults:
   - debug: null
 
 # task name, determines output directory path
-task_name: "augumented-data-${model.model_name}"
-ip_vid_path: ${datasets.datasets_dir}/121364_0.mp4"
+task_name: "augumented-data-${models.model_name}"
 
 # tags to help you identify your experiments
 # you can overwrite this in experiment configs
@@ -44,7 +43,7 @@ args:
   half: True # Enables half-precision (FP16) computation,
   device: 0 # cuda device, i.e. 0 or 0,1,2,3 or cpu
   plots: True
-  verbose: True # print allverbose
+  verbose: True # print all verbose
   workers: 16
   batch: 1
   agnostic_nms: True # Enables class-agnostic Non-Maximum Suppression (NMS), which merges overlapping boxes of different classes. Useful in multi-class detection scenarios where class overlap is common.

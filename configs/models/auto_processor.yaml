@@ -1,0 +1,4 @@
+auto_processor:
+  _target_: transformers.AutoProcessor.from_pretrained
+  pretrained_model_name_or_path: ${paths.embedded_model_name}
+  use_fast: True

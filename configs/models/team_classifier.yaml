@@ -1,0 +1,5 @@
+team_classifier:
+  _target_: src.models.team_classifier.TeamClassifier
+  embedding_processor: ${models.auto_processor}
+  embedding_model: ${models.siglip_vision_model}
+  batch_size: 32
