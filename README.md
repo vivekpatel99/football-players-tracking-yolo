@@ -1,6 +1,6 @@
 # football-player-tracking-yolo
 
-![first-look-at-datasets](readme-assets/result_tracker.gif)
+![first-look-at-datasets](readme-assets/yolov12l_processed_121364_0.gif.gif)
 
 ## Objective
 
@@ -88,6 +88,10 @@ Dataset are downloaded from [Roboflow universe](https://universe.roboflow.com/ro
 
 ## 📈 Results & Visualizations
 
+**Confusion Matrix**
+![confusion-matrix](readme-assets/confusion_matrix.png)
+**F1 Curve**
+![F1-curve](readme-assets/F1_curve.png)
 **Model Summary:**
 
 **Validation Metrics:**

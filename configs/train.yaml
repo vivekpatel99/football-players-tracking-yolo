@@ -8,18 +8,17 @@ defaults:
   - paths: default
   - extras: default
   - hydra: default
-  - model: default 
+  - models: default
   - trainer: default
   - tracker: default
 
-  # model config (enable through command line, e.g. `python train.py model=default`)- 
-
+  # model config (enable through command line, e.g. `python train.py model=default`)-
 
   # debugging config (enable through command line, e.g. `python train.py debug=default)
   - debug: null
 
 # task name, determines output directory path
-task_name: "augumented-data-${model.model_name}"
+task_name: "augumented-data-training-${models.model_name}"
 
 # tags to help you identify your experiments
 # you can overwrite this in experiment configs

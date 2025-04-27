@@ -2,20 +2,20 @@
 # https://docs.ultralytics.com/modes/train/#augmentation-settings-and-hyperparameters
 default_root_dir: ${paths.output_dir}
 params:
-# must give project path or else - Error: No such file or directory: 'runs/detect/train/weights/best.pt' or permission denied
+  # must give project path or else - Error: No such file or directory: 'runs/detect/train/weights/best.pt' or permission denied
   project: ${paths.results_dir}
   name: ${task_name}
-  epochs: 200
-  imgsz: 1280
+  epochs: 2 #200
+  imgsz: 640 #1280
   batch: -1 # auto mode automatically adjust batch size for approximately 60% CUDA
   lr0: 1e-4
   optimizer: auto
   pretrained: true
   workers: 16
-  cache: disk 
+  cache: disk
   save: true
   # Enables Automatic Mixed Precision (AMP) training, reducing memory usage and possibly speeding up training with minimal impact on accuracy.
-  amp : true
+  amp: true
   exist_ok: true
   device: 0
   val: true

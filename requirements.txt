@@ -10,6 +10,7 @@ supervision
 transformers # train players from 2 teams
 sentencepiece
 umap-learn
+mlflow
 
 # --------- others --------- #
 pyrootutils     # standardizing the project root setup
