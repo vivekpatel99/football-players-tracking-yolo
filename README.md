@@ -1,6 +1,6 @@
 # football-player-tracking-yolo
 
-![first-look-at-datasets](readme-assets/yolo12l_processed_0bfacc_0.gif.gif)
+![first-look-at-datasets](readme-assets/yolo12l_processed_0bfacc_0.gif)
 
 ## Objective
 
