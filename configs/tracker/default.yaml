@@ -1,3 +1,2 @@
-defaults:
-  - bot-sort
-  # - bytetrack
+tracker: configs/tracker/bytetrack.yaml
+# tracker: configs/tracker/bot-sort.yaml
