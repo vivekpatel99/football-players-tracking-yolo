@@ -31,7 +31,6 @@ def main(cfg: DictConfig):
     log.info(f"output video: {output_file}")
     output_file.unlink(missing_ok=True)  # Remove existing file if it exists
 
-    # sv.Position.BOTTOM_CENTER
     # --- Annotator setup ---
     log.info("annotator setup")
     label_annotator = hydra.utils.instantiate(cfg.annotate.label_annotator, text_position=sv.Position.TOP_CENTER)
@@ -43,7 +42,7 @@ def main(cfg: DictConfig):
     model = hydra.utils.instantiate(cfg.models.model)
     log.info("team classifier instantiation")
     team_classifier = hydra.utils.instantiate(cfg.models.team_classifier)
-    log.info("tracker instantiation")
+    log.info(f"tracker instantiation: {cfg.tracker}")
     tracker = hydra.utils.instantiate(cfg.tracker)
     tracker.reset()
 
@@ -134,4 +133,40 @@ def main(cfg: DictConfig):
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    BALL_ID = 0
+    colors_list = [sv.Color.RED, sv.Color.WHITE, sv.Color.GREEN, sv.Color.BLUE]
+    colors = sv.ColorPalette(colors=colors_list)
+
+    # ellip_annotator = sv.EllipseAnnotator(color=colors,thickness=2)
+    ellip_annotator = sv.EllipseAnnotator(color=colors, thickness=2)
+    traingle_annot = sv.TriangleAnnotator(color=colors_list[0], base=25, height=21, outline_thickness=1)
+    label_annotator = sv.LabelAnnotator(color=colors, text_color=sv.Color.BLACK, text_position=sv.Position.TOP_CENTER)
+    from ultralytics import YOLO
+
+    model = YOLO("/workspaces/football-players-tracking-yolo/results/augumented-data-yolo12l/weights/final_best.pt")
+
+    def yolo_tracker_callback(frame: np.ndarray, _: int) -> np.ndarray:
+        # https://hydra.cc/docs/advanced/instantiate_objects/overview/#parameter-conversion-strategies
+        result = model.track(frame, show=False)[0]
+        # result = model.predict(frame, imgsz=pred_args["imgsz"], conf=0.3)[0]
+        detections = sv.Detections.from_ultralytics(result)
+        ball_detections = detections[detections.class_id == BALL_ID]
+        ball_detections.xyxy = sv.pad_boxes(xyxy=ball_detections.xyxy, px=10)
+
+        rest_detections = detections[detections.class_id != BALL_ID]
+        rest_detections = rest_detections.with_nms(threshold=0.5, class_agnostic=True)
+        rest_detections.class_id -= 1
+
+        labels = [f"#{id} {confidence:.2f}" for id, confidence in zip(detections.tracker_id, detections.confidence, strict=False)]
+        annot_frame = ellip_annotator.annotate(scene=frame.copy(), detections=rest_detections)
+        annot_frame = label_annotator.annotate(scene=annot_frame, detections=rest_detections, labels=labels)
+        annot_frame = traingle_annot.annotate(scene=annot_frame, detections=ball_detections)
+        return annot_frame
+
+
+sv.process_video(
+    source_path="/workspaces/football-players-tracking-yolo/data/121364_0.mp4",
+    target_path="/workspaces/football-players-tracking-yolo/results/yolo_tracker_result.mp4",
+    callback=yolo_tracker_callback,
+)

@@ -5,8 +5,8 @@
 # For ByteTrack source code see https://github.com/ifzhang/ByteTrack
 
 _target_: supervision.ByteTrack
-track_activation_threshold: 0.25
-lost_track_buffer: 30
-minimum_matching_threshold: 0.8
+track_activation_threshold: 0.20
+lost_track_buffer: 90
+minimum_matching_threshold: 0.75
 frame_rate: 30
 minimum_consecutive_frames: 1

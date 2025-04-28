@@ -1,2 +1,3 @@
 defaults:
-  - bytetrack
+  - bot-sort
+  # - bytetrack

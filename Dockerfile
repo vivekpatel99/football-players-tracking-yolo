@@ -5,8 +5,13 @@ FROM ultralytics/ultralytics:8.3.111
 RUN apt-get update -y && \
     apt-get upgrade -y  \
     # Packages need for opencv
-    && apt-get install -y curl ffmpeg libsm6 libxext6 && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y curl \
+    ffmpeg \
+    libsm6 \
+    libxext6 \
+    libgtk2.0-dev \
+    pkg-config \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install UV
 # COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
