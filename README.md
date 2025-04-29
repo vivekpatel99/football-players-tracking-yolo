@@ -6,6 +6,8 @@ Example of player tracking using YOLOv12L and ByteTrack
 
 ## Objective
 
+![Flowchart](readme-assets/objective.excalidraw.png)
+
 - Fine tune YoLo model for football player datasets
 - Separate players from each team
 - Detect ball more accurately
@@ -15,6 +17,7 @@ Example of player tracking using YOLOv12L and ByteTrack
 ### Data
 
 Dataset are downloaded from [Roboflow universe](https://universe.roboflow.com/roboflow-jvuqo/football-players-detection-3zvbc/model/12)
+
 **Number of classes** - Ball, goalkeeper, player, referee
 
 ## ✨ Key Features
@@ -108,7 +111,7 @@ Dataset are downloaded from [Roboflow universe](https://universe.roboflow.com/ro
 
 3. **Set up Environment Variables:**
 
-   - Create a `.env` file in the project root directory.
+   - Create a `.env` file in the project root directorusing SW development best practices (OOP)y.
    - Add your Roboflow API key. This is needed if you plan to download datasets directly via Roboflow scripts (if applicable).
 
    ```dotenv
